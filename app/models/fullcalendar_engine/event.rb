@@ -3,7 +3,7 @@ module FullcalendarEngine
 
     attr_accessor :period, :frequency, :commit_button
 
-    validates :title, :description, :user_id :presence => true
+    validates :title, :description, :presence => true
     validate :validate_timings
 
     belongs_to :event_series

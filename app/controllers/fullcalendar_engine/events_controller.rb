@@ -9,7 +9,6 @@ module FullcalendarEngine
     before_filter :determine_event_type, only: :create
 
     def create
-      @event = params[:user_id]
       if @event.save
         render nothing: true
       else
