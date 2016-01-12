@@ -32,7 +32,7 @@ module FullcalendarEngine
                   (starttime >= :start_time and endtime > :end_time and starttime <= :end_time) or
                   (starttime <= :start_time and endtime >= :start_time and endtime <= :end_time) or
                   (starttime <= :start_time and endtime > :end_time)',
-                  start_time: start_time, end_time: end_time)
+                  start_time: start_time, end_time: end_time, user_id: current_user.id)
       events = []
       @events.each do |event|
         events << { id: event.id,
