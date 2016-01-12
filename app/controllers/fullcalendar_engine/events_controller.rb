@@ -18,6 +18,7 @@ module FullcalendarEngine
     end
 
     def new
+
       respond_to do |format|
         format.js
       end
@@ -27,12 +28,12 @@ module FullcalendarEngine
       start_time = Time.at(params[:start].to_i).to_formatted_s(:db)
       end_time   = Time.at(params[:end].to_i).to_formatted_s(:db)
 
-      @events = Event.where('
+      @events = Event.where('user_id = :current_user_id and 
                   (starttime >= :start_time and endtime <= :end_time) or
                   (starttime >= :start_time and endtime > :end_time and starttime <= :end_time) or
                   (starttime <= :start_time and endtime >= :start_time and endtime <= :end_time) or
                   (starttime <= :start_time and endtime > :end_time)',
-                  start_time: start_time, end_time: end_time, user_id: current_user.id)
+                  start_time: start_time, end_time: end_time, current_user_id: current_user.id)
       events = []
       @events.each do |event|
         events << { id: event.id,
