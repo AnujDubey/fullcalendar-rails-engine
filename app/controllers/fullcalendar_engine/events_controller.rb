@@ -9,6 +9,7 @@ module FullcalendarEngine
     before_filter :determine_event_type, only: :create
 
     def create
+      binding.pry
       if @event.save
         render nothing: true
       else

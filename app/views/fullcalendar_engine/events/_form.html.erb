@@ -31,6 +31,7 @@
   <%=f.label :frequency, "Repeat every" %>
   <%=f.select :frequency, (1..30).to_a %> <span id = "period"></span>
 </p>
+<%=f.hidden_field :user_id, :value => current_user.id %>
 <p>
   <%=f.submit %> <span id = "creating_events" class="spinner" style = "display:none;">Creating, Please wait...</span>
 </p>
